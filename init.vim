@@ -1,7 +1,6 @@
 let mapleader = " "
 syntax on
 syntax enable
-set t_Co=256
 colorscheme molokai
 set number
 set relativenumber
@@ -242,15 +241,16 @@ nmap <leader>rc :CocCommand prettier.formatFile<CR>
 
 " Use K to show documentation in preview window.
 
-function! Show_documentation()
-  call CocActionAsync('highlight')
+function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-nnoremap <LEADER>h :call Show_documentation()<CR>
+nnoremap <LEADER>h :call <SID>show_documentation()<CR>
 
 nmap <leader>rn <Plug>(coc-rename)
 function! s:cocActionsOpenFromSelected(type) abort
