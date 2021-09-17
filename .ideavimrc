@@ -1,0 +1,76 @@
+let mapleader=' '
+
+noremap s <nop>
+noremap so :set splitright<CR>:vsplit<CR>
+noremap sy :vsplit<CR>
+noremap si :split<CR>
+noremap sn :set splitbelow<CR>:split<CR>
+noremap <leader>o <C-w>l
+noremap <leader>n <C-w>j
+noremap <leader>i <C-w>k
+noremap <leader>y <C-w>h
+noremap f r
+noremap k t
+noremap j y
+noremap r i
+noremap l o
+noremap h p
+noremap t f
+noremap y h
+noremap n jzz
+noremap i kzz
+noremap o l
+noremap p nzz
+noremap D E
+noremap F R
+noremap K T
+noremap J Y
+noremap R I
+noremap L O
+noremap H P
+noremap E D
+noremap T F
+noremap Y ^
+noremap N 5jzz
+noremap I 5kzz
+noremap O $
+noremap P Nzz
+noremap S :w<CR>
+noremap Q :q<CR>
+noremap d e
+noremap e d
+nnoremap U <C-r>
+nnoremap gn gt
+nnoremap gy gT
+noremap <leader>cc :action Generate<CR>
+noremap <leader>se :action SearchEverywhere<CR>
+noremap <leader>tu :action FindUsages<CR>
+noremap <leader>bb :action ToggleLineBreakpoint<CR>
+noremap <leader>ga :action GotoAction<CR>
+noremap <leader>gc :action GotoClass<CR>
+noremap <leader>ge :action GotoDeclaration<CR>
+noremap <leader>gt :action GotoFile<CR>
+noremap <leader>gi :action GotoImplementation<CR>
+noremap <leader>sf :action ShowFilePath<CR>
+noremap <leader>re :action RenameElement<CR>
+noremap <leader>rf :action RenameFile<CR>
+noremap <leader>su :action ShowUsages<CR>
+noremap <leader>lr :action OptimizeImports<CR>
+noremap <leader>lu :action OverrideMethods<CR>
+noremap <leader>rc :action ReformatCode<CR>
+noremap <leader>qe :action QuickJavaDoc<CR>
+noremap <leader>si :action ShowIntentionActions<CR>
+noremap <leader>tt :action CloseActiveTab<CR>
+noremap <leader>en :action GotoNextError<CR>
+noremap <leader>ei :action GotoPreviousError<CR>
+noremap <leader>mr :action Maven.Reimport<CR>
+noremap <leader>iv :action IntroduceVariable<CR>
+noremap <leader>cn :action CommentByBlockComment<CR>
+noremap <leader>cl :action CommentByLineComment<CR>
+noremap <leader>so :action SelectInProjectView<CR>
+set ignorecase
+set smartcase
+set nu
+set relativenumber
+set keep-english-in-normal
+set keep-english-in-normal-and-restore-in-insert
