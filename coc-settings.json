@@ -159,5 +159,6 @@
   "css.validate": false,
   "leetcode.enabled": true,
   "leetcode.language": "java",
-  "java.home": "~/Library/Java/JavaVirtualMachines/jdk-18.jdk/Contents/Home/"
+  "java.home": "~/Library/Java/JavaVirtualMachines/jdk-18.jdk/Contents/Home/",
+  "clangd.path": "~/Environment/clangd_12.0.1/bin/clangd"
 }

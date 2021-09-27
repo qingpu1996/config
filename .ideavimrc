@@ -41,9 +41,10 @@ noremap d e
 noremap e d
 nnoremap U <C-r>
 nnoremap gn gt
-nnoremap gy gT
+nnoremap gi gT
 noremap <leader>cc :action Generate<CR>
 noremap <leader>se :action SearchEverywhere<CR>
+noremap <leader>st :action FindInPath<CR>
 noremap <leader>tu :action FindUsages<CR>
 noremap <leader>bb :action ToggleLineBreakpoint<CR>
 noremap <leader>ga :action GotoAction<CR>

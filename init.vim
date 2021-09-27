@@ -168,10 +168,10 @@ nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
 let g:buffet_powerline_separators=1
 let g:buffet_show_index=1
-noremap <S-Tab> :bn<CR>
-noremap <LEADER><Tab> :Bw<CR>
-noremap <LEADER><S-Tab> :Bw!<CR>
-noremap <C-t> :tabnew split<CR>
+nnoremap <S-Tab> :bn<CR>
+nnoremap <LEADER><Tab> :Bw<CR>
+nnoremap <LEADER><S-Tab> :Bw!<CR>
+nnoremap <C-t> :tabnew split<CR>
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -231,10 +231,10 @@ let g:indentLine_concealcursor = ''
 let g:indentLine_conceallevel = 2
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 "format 
 nmap <leader>rc :CocCommand prettier.formatFile<CR>
@@ -256,19 +256,22 @@ nmap <leader>rn <Plug>(coc-rename)
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
 endfunction
-xmap <silent> <leader>si :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>si :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+xmap <leader>si  <Plug>(coc-codeaction-selected)
+nmap <leader>si  <Plug>(coc-codeaction)
+nmap <leader>sf  <Plug>(coc-fix-current)
 " coc-extension
 let g:coc_global_extensions = ['coc-json', 'coc-marketplace', 'coc-vetur', 'coc-ultisnips', 'coc-leetcode',
                                 \ 'coc-html', 'coc-css', 'coc-prettier', 'coc-tsserver', 'coc-pyright', 'coc-explorer',
                                 \ 'coc-floaterm', 'coc-actions', 'coc-diagnostic', 'coc-snippets', 'coc-pairs', 'coc-emmet', 'coc-syntax', 'coc-highlight',
-                                \ 'coc-tailwindcss', 'coc-java', 'coc-ci', 'coc-clangd']
+                                \ 'coc-tailwindcss', 'coc-java', 'coc-ci']
 "coc-explorer config
 nnoremap <leader>ee :CocCommand explorer<CR>
 nmap <silent> <space>en <Plug>(coc-diagnostic-next)
 nmap <silent> <space>ei <Plug>(coc-diagnostic-prev)
 " format
 nmap <leader>rc :CocCommand prettier.formatFile<CR>
+xmap <leader>ft  <Plug>(coc-format-selected)
+nmap <leader>ft  <Plug>(coc-format-selected)
 
 " sandwich map
 let g:sandwich_no_default_key_mappings = 1
