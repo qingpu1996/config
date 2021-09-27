@@ -71,7 +71,7 @@ noremap <leader>cl :action CommentByLineComment<CR>
 noremap <leader>so :action SelectInProjectView<CR>
 noremap <leader>tt :action ToggleBookmark<CR>
 noremap <leader>tp :action ToggleBookmarkWithMnemonic<CR>
-noremap <leader>te :action DeleteMnemoincFromBookmark<CR>
+noremap <leader>te :action DeleteMnemonicFromBookmark<CR>
 noremap <leader>tn :action GotoNextBookmark<CR>
 noremap <leader>ti :action GotoPreviousBookmark<CR>
 noremap <leader>tgn :action GotoNextGlobalBookmark<CR>
