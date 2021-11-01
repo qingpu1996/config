@@ -42,6 +42,7 @@ noremap e d
 nnoremap U <C-r>
 nnoremap gn gt
 nnoremap gi gT
+noremap <leader>sr :action SurroundWith<CR>
 noremap <leader>cc :action Generate<CR>
 noremap <leader>se :action SearchEverywhere<CR>
 noremap <leader>st :action FindInPath<CR>
@@ -78,6 +79,9 @@ noremap <leader>tgn :action GotoNextGlobalBookmark<CR>
 noremap <leader>tgi :action GotoPreviousGlobalBookmark<CR>
 noremap <leader>to :action Bookmarks.Goto<CR>
 noremap <leader>ts :action ShowBookmarks<CR>
+noremap <leader>ta :action $EditorTranslateAction<CR>
+noremap <leader>tr :action $TranslateAndReplaceAction<CR>
+noremap <leader>tm :action TranslationPopupMenu<CR>
 set ignorecase
 set smartcase
 set nu

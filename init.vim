@@ -135,6 +135,12 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
+Plug 'ybian/smartim'
+
+Plug 'mzlogin/vim-markdown-toc'
+
+Plug 'ferrine/md-img-paste.vim'
+
 call plug#end()
 let g:dashboard_default_executive ='fzf'
 "config ack
@@ -142,7 +148,7 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 endif
 
-nmap <leader>sf :Ack!<SPACE>
+nmap <leader>st :Ack!<SPACE>
 
 let g:ackhighlight = 1
 let g:ack_qhandler = "botright copen 15"
@@ -402,3 +408,9 @@ let g:mkdp_filetypes = ['markdown']
 
 " java
 nnoremap <leader>lr :CocCommand java.action.organizeImports<CR>
+let g:smartim_default = 'com.apple.keylayout.ABC'
+let g:vmt_auto_update_on_save = 0
+
+autocmd FileType markdown nnoremap <silent> <leader>; :call mdip#MarkdownClipboardImage()<CR>F%i
+let g:mdip_imgdir = 'img'
+let g:mdip_imgname = 'image'
