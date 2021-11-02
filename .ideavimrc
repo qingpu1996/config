@@ -41,9 +41,11 @@ noremap d e
 noremap e d
 nnoremap U <C-r>
 nnoremap gn gt
-nnoremap gy gT
+nnoremap gi gT
+noremap <leader>sr :action SurroundWith<CR>
 noremap <leader>cc :action Generate<CR>
 noremap <leader>se :action SearchEverywhere<CR>
+noremap <leader>st :action FindInPath<CR>
 noremap <leader>tu :action FindUsages<CR>
 noremap <leader>bb :action ToggleLineBreakpoint<CR>
 noremap <leader>ga :action GotoAction<CR>
@@ -60,7 +62,7 @@ noremap <leader>lu :action OverrideMethods<CR>
 noremap <leader>rc :action ReformatCode<CR>
 noremap <leader>qe :action QuickJavaDoc<CR>
 noremap <leader>si :action ShowIntentionActions<CR>
-noremap <leader>tt :action CloseActiveTab<CR>
+noremap <leader>ca :action CloseActiveTab<CR>
 noremap <leader>en :action GotoNextError<CR>
 noremap <leader>ei :action GotoPreviousError<CR>
 noremap <leader>mr :action Maven.Reimport<CR>
@@ -68,6 +70,18 @@ noremap <leader>iv :action IntroduceVariable<CR>
 noremap <leader>cn :action CommentByBlockComment<CR>
 noremap <leader>cl :action CommentByLineComment<CR>
 noremap <leader>so :action SelectInProjectView<CR>
+noremap <leader>tt :action ToggleBookmark<CR>
+noremap <leader>tp :action ToggleBookmarkWithMnemonic<CR>
+noremap <leader>te :action DeleteMnemonicFromBookmark<CR>
+noremap <leader>tn :action GotoNextBookmark<CR>
+noremap <leader>ti :action GotoPreviousBookmark<CR>
+noremap <leader>tgn :action GotoNextGlobalBookmark<CR>
+noremap <leader>tgi :action GotoPreviousGlobalBookmark<CR>
+noremap <leader>to :action Bookmarks.Goto<CR>
+noremap <leader>ts :action ShowBookmarks<CR>
+noremap <leader>ta :action $EditorTranslateAction<CR>
+noremap <leader>tr :action $TranslateAndReplaceAction<CR>
+noremap <leader>tm :action TranslationPopupMenu<CR>
 set ignorecase
 set smartcase
 set nu
