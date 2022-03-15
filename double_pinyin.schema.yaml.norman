@@ -3,19 +3,14 @@
 
 schema:
   schema_id: double_pinyin
-  name: 中码魔改Norman版
-  version: "1.0"
+  name: 中码Norman魔改版
+  version: "1.0.0"
   author:
-    - 无名氏
+    - qingpu
   description: |
-    朙月拼音＋自然码双拼方案。
+    中码Norman魔改版，Norman布局，把中码以qwerty布局的形式重新映射回来
   dependencies:
     - stroke
-
-patch:
-  style:
-    horizontal: true
-
 
 switches:
   - name: ascii_mode
@@ -49,12 +44,13 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - script_translator
+
   filters:
     - simplifier
     - uniquifier
 
 speller:
-  alphabet: "b;mtekpogiynqxvrufzcsjwaoeld"
+  alphabet: "bpmtekogiynqxvrufzcsjwaoeld;"
   delimiter: " '"
   algebra:
     - erase/^xx$/
@@ -75,11 +71,13 @@ speller:
     - xform/^sh/U/
     - xform/r/F/
     - xform/^y/J/
-    - xform/iang$/K/
-    - xform/iong$/G/
+    - xform/o/L/
+    - xform/e/D/
     - xform/uang$/K/
-    - xform/ang$/Q/
+    - xform/iang$/K/
     - xform/ong$/G/
+    - xform/iong$/G/
+    - xform/ang$/Q/
     - xform/eng$/J/
     - xform/ian$/I/
     - xform/iao$/Y/
@@ -102,14 +100,14 @@ speller:
     - xform/un$/;/
     - xform/uo$/L/
     - xform/ve$/C/
-    - xform/o$/L/
-    - xform/e/D/
     - xform/i$/R/
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
 
 translator:
   dictionary: luna_pinyin
   prism: double_pinyin
+  preedit_format:
+    - "xform/^/〔双〕/"
 
 reverse_lookup:
   dictionary: stroke

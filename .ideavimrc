@@ -40,6 +40,7 @@ noremap Q :q<CR>
 noremap d e
 noremap e d
 nnoremap U <C-r>
+noremap X :action ReopenClosedTab<CR>
 nnoremap gn gt
 nnoremap gi gT
 noremap <leader>sr :action SurroundWith<CR>
@@ -51,7 +52,7 @@ noremap <leader>bb :action ToggleLineBreakpoint<CR>
 noremap <leader>ga :action GotoAction<CR>
 noremap <leader>gc :action GotoClass<CR>
 noremap <leader>ge :action GotoDeclaration<CR>
-noremap <leader>gt :action GotoFile<CR>
+noremap <leader>gt :action GotoTest<CR>
 noremap <leader>gi :action GotoImplementation<CR>
 noremap <leader>sf :action ShowFilePath<CR>
 noremap <leader>re :action RenameElement<CR>

@@ -17,7 +17,6 @@
   "suggest.snippetIndicator": "",
   "suggest.triggerCompletionWait": 100,
   "suggest.echodocSupport": true,
-  "vetur.completion.tagCasing": "kebab",
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -154,11 +153,51 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappingMode": "none",
   "explorer.buffer.showHiddenBuffers": false,
-  "vetur.experimental.templateInterpolationService": false,
   "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
   "css.validate": false,
   "leetcode.enabled": true,
   "leetcode.language": "java",
   "java.home": "~/Library/Java/JavaVirtualMachines/jdk-18.jdk/Contents/Home/",
-  "clangd.path": "~/Environment/clangd_12.0.1/bin/clangd"
+  "clangd.path": "~/Environment/clangd_12.0.1/bin/clangd",
+  "languageserver": {
+    "tailwind-lsp": {
+      "command": "tailwindcss-language-server",
+      "args": ["--stdio"],
+
+      "filetypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue"
+      ],
+
+      "rootPatterns": [
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "postcss.config.ts",
+        "package.json",
+        "node_modules",
+        ".git"
+      ],
+      "settings": {
+        "tailwindCSS": {
+          "validate": true,
+          "lint": {
+            "cssConflict": "warning",
+            "invalidApply": "error",
+            "invalidScreen": "error",
+            "invalidVariant": "error",
+            "invalidConfigPath": "error",
+            "invalidTailwindDirective": "error",
+            "recommendedVariantOrder": "warning"
+          },
+          "classAttributes": ["class", "className", "classList", "ngClass"],
+          "experimental": {}
+        }
+      }
+    }
+  }
 }

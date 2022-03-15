@@ -75,7 +75,6 @@ noremap v v
 noremap b b
 noremap p n
 noremap m m
-noremap W W
 noremap D E
 noremap F R
 noremap K T
@@ -96,7 +95,6 @@ noremap Z Z
 noremap X X
 noremap C C
 noremap V V
-noremap B B
 noremap P N
 noremap M M
 
@@ -141,6 +139,10 @@ Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'ferrine/md-img-paste.vim'
 
+Plug 'SirVer/ultisnips',{'for':'markdown'}
+
+Plug 'ppwwyyxx/vim-PinyinSearch'
+
 call plug#end()
 let g:dashboard_default_executive ='fzf'
 "config ack
@@ -149,6 +151,8 @@ if executable('rg')
 endif
 
 nmap <leader>st :Ack!<SPACE>
+nmap <silent> W <Plug>(coc-ci-w)
+nmap <silent> B <Plug>(coc-ci-b)
 
 let g:ackhighlight = 1
 let g:ack_qhandler = "botright copen 15"
@@ -224,8 +228,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 
 " indentLine config
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
@@ -266,10 +268,12 @@ xmap <leader>si  <Plug>(coc-codeaction-selected)
 nmap <leader>si  <Plug>(coc-codeaction)
 nmap <leader>sf  <Plug>(coc-fix-current)
 " coc-extension
-let g:coc_global_extensions = ['coc-json', 'coc-marketplace', 'coc-vetur', 'coc-ultisnips', 'coc-leetcode',
+let g:coc_global_extensions = ['coc-json', 'coc-marketplace', 'coc-ultisnips', 'coc-leetcode',
                                 \ 'coc-html', 'coc-css', 'coc-prettier', 'coc-tsserver', 'coc-pyright', 'coc-explorer',
                                 \ 'coc-floaterm', 'coc-actions', 'coc-diagnostic', 'coc-snippets', 'coc-pairs', 'coc-emmet', 'coc-syntax', 'coc-highlight',
-                                \ 'coc-tailwindcss', 'coc-java', 'coc-ci']
+                                \ 'coc-tailwindcss', 'coc-java', 'coc-ci', 'coc-clangd', '@yaegassy/coc-volar']
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 "coc-explorer config
 nnoremap <leader>ee :CocCommand explorer<CR>
 nmap <silent> <space>en <Plug>(coc-diagnostic-next)
@@ -414,3 +418,7 @@ let g:vmt_auto_update_on_save = 0
 autocmd FileType markdown nnoremap <silent> <leader>; :call mdip#MarkdownClipboardImage()<CR>F%i
 let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
+
+" PinyinSearch
+let g:PinyinSearch_Dict = '/Users/qingpu/.local/share/nvim/plugged/vim-PinyinSearch/PinyinSearch.dict'
+nnoremap ? :call PinyinSearch()<CR>
