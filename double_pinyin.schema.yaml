@@ -75,23 +75,24 @@ speller:
     - xform/^sh/U/
     - xform/r/F/
     - xform/^y/J/
+    - xform/^o/L/
     - xform/iang$/K/
     - xform/iong$/G/
     - xform/uang$/K/
-    - xform/ang$/Q/
+    - xform/(.)ang$/$1Q/
     - xform/ong$/G/
-    - xform/eng$/J/
+    - xform/(.)eng$/$1J/
     - xform/ian$/I/
     - xform/iao$/Y/
     - xform/ing$/S/
     - xform/uai$/E/
     - xform/uan$/M/
-    - xform/ai$/T/
-    - xform/an$/N/
-    - xform/ao$/W/
-    - xform/ou$/B/
-    - xform/ei$/X/
-    - xform/en$/O/
+    - xform/(.)ai$/$1T/
+    - xform/(.)an$/$1N/
+    - xform/(.)ao$/$1W/
+    - xform/(.)ou$/$1B/
+    - xform/(.)ei$/$1X/
+    - xform/(.)en$/$1O/
     - xform/ia$/P/
     - xform/ie$/Z/
     - xform/in$/E/
@@ -102,7 +103,7 @@ speller:
     - xform/un$/;/
     - xform/uo$/L/
     - xform/ve$/C/
-    - xform/o$/L/
+    - xform/(.)o$/$1L/
     - xform/e/D/
     - xform/i$/R/
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
