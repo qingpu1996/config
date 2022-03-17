@@ -3,14 +3,19 @@
 
 schema:
   schema_id: double_pinyin
-  name: 中码Norman魔改版
-  version: "1.0.0"
+  name: 中码魔改Norman版
+  version: "1.0"
   author:
-    - qingpu
+    - 无名氏
   description: |
-    中码Norman魔改版，Norman布局，把中码以qwerty布局的形式重新映射回来
+    朙月拼音＋自然码双拼方案。
   dependencies:
     - stroke
+
+patch:
+  style:
+    horizontal: true
+
 
 switches:
   - name: ascii_mode
@@ -44,13 +49,12 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - script_translator
-
   filters:
     - simplifier
     - uniquifier
 
 speller:
-  alphabet: "bpmtekogiynqxvrufzcsjwaoeld;"
+  alphabet: "b;mtekpogiynqxvrufzcsjwaoeld"
   delimiter: " '"
   algebra:
     - erase/^xx$/
@@ -71,25 +75,24 @@ speller:
     - xform/^sh/U/
     - xform/r/F/
     - xform/^y/J/
-    - xform/o/L/
-    - xform/e/D/
-    - xform/uang$/K/
+    - xform/^o/L/
     - xform/iang$/K/
-    - xform/ong$/G/
     - xform/iong$/G/
-    - xform/ang$/Q/
-    - xform/eng$/J/
+    - xform/uang$/K/
+    - xform/(.)ang$/$1Q/
+    - xform/ong$/G/
+    - xform/(.)eng$/$1J/
     - xform/ian$/I/
     - xform/iao$/Y/
     - xform/ing$/S/
     - xform/uai$/E/
     - xform/uan$/M/
-    - xform/ai$/T/
-    - xform/an$/N/
-    - xform/ao$/W/
-    - xform/ou$/B/
-    - xform/ei$/X/
-    - xform/en$/O/
+    - xform/(.)ai$/$1T/
+    - xform/(.)an$/$1N/
+    - xform/(.)ao$/$1W/
+    - xform/(.)ou$/$1B/
+    - xform/(.)ei$/$1X/
+    - xform/(.)en$/$1O/
     - xform/ia$/P/
     - xform/ie$/Z/
     - xform/in$/E/
@@ -100,14 +103,14 @@ speller:
     - xform/un$/;/
     - xform/uo$/L/
     - xform/ve$/C/
+    - xform/(.)o$/$1L/
+    - xform/e/D/
     - xform/i$/R/
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
 
 translator:
   dictionary: luna_pinyin
   prism: double_pinyin
-  preedit_format:
-    - "xform/^/〔双〕/"
 
 reverse_lookup:
   dictionary: stroke

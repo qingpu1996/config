@@ -3,12 +3,12 @@
 
 schema:
   schema_id: double_pinyin
-  name: 中码魔改Norman版
+  name: 乱序优化魔改Norman版
   version: "1.0"
   author:
     - 无名氏
   description: |
-    朙月拼音＋自然码双拼方案。
+    朙月拼音＋乱序优化双拼方案。
   dependencies:
     - stroke
 
@@ -54,58 +54,68 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: "b;mtekpogiynqxvrufzcsjwaoeld"
+  alphabet: "vzxctagsurlfdwohnymjpei;qbk"
   delimiter: " '"
   algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
-    - derive/^([aoe])([ioun])$/$1$1$2/
-    - xform/^([aoe])(ng)?$/$1$1$2/
-    - xform/^p/;/
-    - xform/^f/T/
-    - xform/^d/E/
-    - xform/^t/K/
-    - xform/^n/P/
-    - xform/^l/O/
-    - xform/^k/I/
-    - xform/^h/Y/
-    - xform/^j/N/
-    - xform/^zh/V/
-    - xform/^ch/R/
-    - xform/^sh/U/
-    - xform/r/F/
-    - xform/^y/J/
-    - xform/^o/L/
-    - xform/iang$/K/
-    - xform/iong$/G/
-    - xform/uang$/K/
-    - xform/(.)ang$/$1Q/
-    - xform/ong$/G/
-    - xform/(.)eng$/$1J/
-    - xform/ian$/I/
-    - xform/iao$/Y/
-    - xform/ing$/S/
-    - xform/uai$/E/
-    - xform/uan$/M/
-    - xform/(.)ai$/$1T/
-    - xform/(.)an$/$1N/
-    - xform/(.)ao$/$1W/
-    - xform/(.)ou$/$1B/
-    - xform/(.)ei$/$1X/
-    - xform/(.)en$/$1O/
-    - xform/ia$/P/
-    - xform/ie$/Z/
-    - xform/in$/E/
-    - xform/iu$/F/
-    - xform/ua$/P/
-    - xform/ue$/C/
-    - xform/ui$/V/
-    - xform/un$/;/
-    - xform/uo$/L/
-    - xform/ve$/C/
-    - xform/(.)o$/$1L/
-    - xform/e/D/
-    - xform/i$/R/
+    - xform/^([aoe].*)$/K$1/
+    - xform/^b/V/
+    - xform/^p/Z/
+    - xform/^m/X/
+    - xform/^f/C/
+    - xform/^d/T/
+    - xform/^t/A/
+    - xform/^n/G/
+    - xform/^l/S/
+    - xform/^g/U/
+    - xform/^k/R/
+    - xform/^h/L/
+    - xform/^j/F/
+    - xform/^q/D/
+    - xform/^x/W/
+    - xform/^zh/O/
+    - xform/^ch/H/
+    - xform/^sh/N/
+    - xform/^r/Y/
+    - xform/^z/M/
+    - xform/^c/J/
+    - xform/^s/P/
+    - xform/^y/E/
+    - xform/^w/I/
+    - xform/iang$/L/
+    - xform/iong$/R/
+    - xform/uang$/D/
+    - xform/(.)ang$/$1G/
+    - xform/ong$/A/
+    - xform/(.)eng$/$1C/
+    - xform/ian$/M/
+    - xform/iao$/P/
+    - xform/ing$/U/
+    - xform/uai$/B/
+    - xform/uan$/W/
+    - xform/(.)ai$/$1E/
+    - xform/(.)an$/$1T/
+    - xform/(.)ao$/$1S/
+    - xform/(.)ou$/$1R/
+    - xform/(.)ei$/$1Z/
+    - xform/(.)en$/$1X/
+    - xform/(.)er$/$1I/
+    - xform/ia$/H/
+    - xform/ie$/;/
+    - xform/in$/Y/
+    - xform/iu$/J/
+    - xform/ua$/Q/
+    - xform/ue$/F/
+    - xform/ui$/F/
+    - xform/un$/K/
+    - xform/uo$/V/
+    - xform/ve$/F/
+    - xform/a$/H/
+    - xform/o$/V/
+    - xform/e$/N/
+    - xform/u$/O/
+    - xform/v$/D/
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
 
 translator:
@@ -133,3 +143,4 @@ recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "`[a-z]*'?$"
+  
