@@ -1,7 +1,7 @@
 let mapleader = " "
 syntax on
 syntax enable
-colorscheme molokai
+colorscheme cosmic-barf
 set number
 set relativenumber
 set cursorline
@@ -142,6 +142,8 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'SirVer/ultisnips',{'for':'markdown'}
 
 Plug 'ppwwyyxx/vim-PinyinSearch'
+
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 let g:dashboard_default_executive ='fzf'
