@@ -3,8 +3,6 @@
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.messageLevel": "error",
-  "coc.source.around.firstMatch": false,
-  "coc.source.buffer.firstMatch": false,
   "suggest.detailMaxLength": 60,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
@@ -15,8 +13,6 @@
   "suggest.floatEnable": true,
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
-  "suggest.triggerCompletionWait": 100,
-  "suggest.echodocSupport": true,
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -158,8 +154,6 @@
   "css.validate": false,
   "leetcode.enabled": true,
   "leetcode.language": "java",
-  "java.home": "~/Library/Java/JavaVirtualMachines/jdk-18.jdk/Contents/Home/",
-  "clangd.path": "~/Environment/clangd_12.0.1/bin/clangd",
   "languageserver": {
     "tailwind-lsp": {
       "command": "tailwindcss-language-server",
