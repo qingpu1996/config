@@ -78,3 +78,58 @@ let g:ack_mappings={
   \ "l" : "<CR>"
   \ }
 
+"coc
+"coc extensions
+let g:coc_global_extensions = ['coc-marketplace', 'coc-explorer', 'coc-prettier']
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+nnoremap <LEADER>h :call <SID>show_documentation()<CR>
+nmap <leader>rn <Plug>(coc-rename)
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <leader>si  <Plug>(coc-codeaction-selected)
+nmap <leader>si  <Plug>(coc-codeaction)
+nmap <leader>sf  <Plug>(coc-fix-current)
+"coc-explorer config
+nnoremap <leader>ee :CocCommand explorer<CR>
+nmap <silent> <space>en <Plug>(coc-diagnostic-next)
+nmap <silent> <space>ei <Plug>(coc-diagnostic-prev)
+" format
+nmap <leader>rc :CocCommand prettier.formatFile<CR>
+xmap <leader>ft  <Plug>(coc-format-selected)
+nmap <leader>ft  <Plug>(coc-format-selected)

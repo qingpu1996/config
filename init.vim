@@ -31,6 +31,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 "ack.vim
 Plug 'mileszs/ack.vim'
+"coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 

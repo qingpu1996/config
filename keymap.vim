@@ -2,9 +2,6 @@ noremap <LEADER><CR> :nohlsearch<CR>
 map S :w<CR>
 map Q :q<CR>
 map <LEADER>rr :source ~/.config/nvim/init.vim <CR>
-noremap <LEADER>w <C-w>w
-noremap <LEADER>i <C-w>k
-noremap <LEADER>n <C-w>j
 " The key map for norman key board layout
 noremap q q
 noremap w w
@@ -57,3 +54,8 @@ nnoremap <S-Tab> :bn<CR>
 nnoremap <LEADER><Tab> :Bw<CR>
 nnoremap <LEADER><S-Tab> :Bw!<CR>
 nnoremap <C-t> :tabnew split<CR>
+noremap <LEADER>w <C-w>w
+noremap <LEADER>i <C-w>k
+noremap <LEADER>n <C-w>j
+noremap <LEADER>y <C-w>h
+noremap <LEADER>o <C-w>l
