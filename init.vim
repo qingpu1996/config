@@ -33,8 +33,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 "coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"vim-im-select for wsl2 arch
-Plug 'Leiyi548/vim-im-select'
 
 call plug#end()
 
