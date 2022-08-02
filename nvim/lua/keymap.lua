@@ -1,10 +1,10 @@
 local function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-       options = vim.tbl_extend("force", options, opts)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
 
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Vim for Norman
@@ -12,6 +12,7 @@ end
 map('', 'Q', ':q<cr>', {})
 map('', 'S', ':w<cr>', {})
 map('', 'd', 'e', {})
+map('', 'f', 'r', {})
 map('', 'k', 't', {})
 map('', 'j', 'y', {})
 map('', 'r', 'i', {})
@@ -46,7 +47,7 @@ map('', '<leader>o', '<C-w>l', {})
 map('n', '<S-Tab>', ':bn<cr>', {})
 map('n', '<C-t>', ':tabnew split<cr>', {})
 map('n', '<leader><cr>', ':nohlsearch<cr>', {})
-map('n', 'X', ':bd<cr>', {})
+map('n', 'X', ':bd|bp<cr>', {})
 -- Telescope Keymap
 map('n', '<leader>tt', '<cmd>Telescope find_files<cr>', {})
 map('n', '<leader>tg', '<cmd>Telescope live_grep<cr>', {})
@@ -66,3 +67,7 @@ map('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<cr>', {})
 map('n', '<leader>bn', '<cmd>BufferLineCycleNext<cr>', {})
 map('n', '<leader>bi', '<cmd>BufferLineCyclePrev<cr>', {})
 map('n', '<leader>bp', '<cmd>BufferLinePick<cr>', {})
+-- toggleterm Keymap
+map('n', '<leader>T', '<cmd>ToggleTerm<cr>', {})
+-- format
+map('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})

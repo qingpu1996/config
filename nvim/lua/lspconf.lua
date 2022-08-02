@@ -1,12 +1,12 @@
-require("nvim-lsp-installer").setup{
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
+require("nvim-lsp-installer").setup {
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
     }
+  }
 }
 
 local lspsaga = require 'lspsaga'
@@ -59,29 +59,30 @@ lspsaga.setup { -- defaults ...
   highlight_prefix = false,
 }
 
-local function attach(client, bufnr)
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-   -- 跳转到定义（代替内置 LSP 的窗口，telescope 插件让跳转定义更方便）
-    vim.keymap.set("n", "<leader>ge", "<cmd>Telescope lsp_definitions theme=dropdown<CR>", bufopts)
-    -- 列出光标下所有引用（代替内置 LSP 的窗口，telescope 插件让查看引用更方便）
-    vim.keymap.set("n", "<leader>su", "<cmd>Telescope lsp_references theme=dropdown<CR>", bufopts)
-    -- 工作区诊断（代替内置 LSP 的窗口，telescope 插件让工作区诊断更方便）
-    vim.keymap.set("n", "go", "<cmd>Telescope diagnostics theme=dropdown<CR>", bufopts)
-    -- 显示代码可用操作（代替内置 LSP 的窗口，Lspsaga 插件让代码行为更方便）
-    vim.keymap.set("n", "<leader>si", "<cmd>Lspsaga code_action<cr>", bufopts)
-    -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
-    vim.keymap.set("n", "<leader>re", "<cmd>Lspsaga rename<CR>", bufopts)
-    -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）
-    vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc<CR>", bufopts)
-    -- 跳转到上一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
-    vim.keymap.set("n", "<leader>ei", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
-    -- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
-    vim.keymap.set("n", "<leader>en", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-    -- 悬浮窗口上翻页，由 Lspsaga 提供
-    vim.keymap.set("n", "<C-i>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", bufopts)
-    -- 悬浮窗口下翻页，由 Lspsaga 提供
-    vim.keymap.set("n", "<C-n>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", bufopts)
+local function attach(client, bufnr)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+  -- 跳转到定义（代替内置 LSP 的窗口，telescope 插件让跳转定义更方便）
+  vim.keymap.set("n", "<leader>ge", "<cmd>Telescope lsp_definitions theme=dropdown<CR>", bufopts)
+  -- 列出光标下所有引用（代替内置 LSP 的窗口，telescope 插件让查看引用更方便）
+  vim.keymap.set("n", "<leader>su", "<cmd>Telescope lsp_references theme=dropdown<CR>", bufopts)
+  -- 工作区诊断（代替内置 LSP 的窗口，telescope 插件让工作区诊断更方便）
+  vim.keymap.set("n", "go", "<cmd>Telescope diagnostics theme=dropdown<CR>", bufopts)
+  -- 显示代码可用操作（代替内置 LSP 的窗口，Lspsaga 插件让代码行为更方便）
+  vim.keymap.set("n", "<leader>si", "<cmd>Lspsaga code_action<cr>", bufopts)
+  -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
+  vim.keymap.set("n", "<leader>re", "<cmd>Lspsaga rename<CR>", bufopts)
+  -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）
+  vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+  -- 跳转到上一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
+  vim.keymap.set("n", "<leader>ei", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
+  -- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
+  vim.keymap.set("n", "<leader>en", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
+  -- 悬浮窗口上翻页，由 Lspsaga 提供
+  vim.keymap.set("n", "<C-i>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", bufopts)
+  -- 悬浮窗口下翻页，由 Lspsaga 提供
+  vim.keymap.set("n", "<C-n>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", bufopts)
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -91,7 +92,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'sumneko_lua', 'jdtls'}
+local servers = { 'sumneko_lua', 'jdtls', 'rust_analyzer', 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -119,31 +120,31 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
       else
         fallback()
       end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    end,
+    ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
         fallback()
       end
-    end, { 'i', 's' }),
+    end
   }),
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
-    { name = 'path'},
-    { name = 'nvim_lua'},
+    { name = 'path' },
+    { name = 'nvim_lua' },
   },
 }
 vim.diagnostic.config({
