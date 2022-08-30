@@ -85,8 +85,8 @@ return require('packer').startup(function()
 
   -- markdown-preview.nvim
   use({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install',
-    setup = function() vim.g.mkdp_filetypes = { 'markdown' } end, ft = { 'markdown' } })
+    setup = function() vim.g.mkdp_filetypes = { 'markdown' } vim.g.mkdp_browser = 'wsl-open' end, ft = { 'markdown' } })
 
   -- switch
-  use { 'Leiyi548/vim-im-select' }
+  -- use { 'Leiyi548/vim-im-select' }
 end)
