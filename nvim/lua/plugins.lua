@@ -88,5 +88,5 @@ return require('packer').startup(function()
     setup = function() vim.g.mkdp_filetypes = { 'markdown' } vim.g.mkdp_browser = 'wsl-open' end, ft = { 'markdown' } })
 
   -- switch
-  -- use { 'Leiyi548/vim-im-select' }
+  use { 'Leiyi548/vim-im-select' }
 end)
