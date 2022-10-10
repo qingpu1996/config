@@ -3,19 +3,18 @@
 
 schema:
   schema_id: double_pinyin
-  name: 乱序优化魔改Norman版
+  name: 中码音灵
   version: "1.0"
   author:
     - 无名氏
   description: |
-    朙月拼音＋乱序优化双拼方案。
+    朙月拼音＋自定义双拼方案。
   dependencies:
     - stroke
 
 patch:
   style:
     horizontal: true
-
 
 switches:
   - name: ascii_mode
@@ -49,73 +48,63 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - script_translator
+
   filters:
     - simplifier
     - uniquifier
 
 speller:
-  alphabet: "vzxctagsurlfdwohnymjpei;qbk"
+  alphabet: "b;mtekpogiynqxvrufzcsjwaoeld"
   delimiter: " '"
   algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
-    - xform/^([aoe].*)$/K$1/
-    - xform/^b/V/
-    - xform/^p/Z/
-    - xform/^m/X/
-    - xform/^f/C/
-    - xform/^d/T/
-    - xform/^t/A/
-    - xform/^n/G/
-    - xform/^l/S/
-    - xform/^g/U/
-    - xform/^k/R/
-    - xform/^h/L/
-    - xform/^j/F/
-    - xform/^q/D/
-    - xform/^x/W/
-    - xform/^zh/O/
-    - xform/^ch/H/
-    - xform/^sh/N/
-    - xform/^r/Y/
-    - xform/^z/M/
-    - xform/^c/J/
-    - xform/^s/P/
-    - xform/^y/E/
-    - xform/^w/I/
-    - xform/iang$/L/
-    - xform/iong$/R/
-    - xform/uang$/D/
-    - xform/(.)ang$/$1G/
-    - xform/ong$/A/
-    - xform/(.)eng$/$1C/
-    - xform/ian$/M/
+    - xform/^([aoe])(.*)$/$1$1$2/
+    - xform/^p/;/
+    - xform/^f/T/
+    - xform/^d/E/
+    - xform/^t/K/
+    - xform/^n/P/
+    - xform/^l/O/
+    - xform/^k/I/
+    - xform/^h/Y/
+    - xform/^j/N/
+    - xform/^zh/V/
+    - xform/^ch/R/
+    - xform/^sh/U/
+    - xform/^r/F/
+    - xform/^y/J/
+    - xform/iang$/N/
+    - xform/iong$/O/
+    - xform/uang$/N/
+    - xform/ang$/T/
+    - xform/ong$/O/
+    - xform/eng$/G/
+    - xform/ian$/K/
     - xform/iao$/P/
-    - xform/ing$/U/
-    - xform/uai$/B/
-    - xform/uan$/W/
-    - xform/(.)ai$/$1E/
-    - xform/(.)an$/$1T/
-    - xform/(.)ao$/$1S/
-    - xform/(.)ou$/$1R/
-    - xform/(.)ei$/$1Z/
-    - xform/(.)en$/$1X/
-    - xform/(.)er$/$1I/
-    - xform/ia$/H/
+    - xform/ing$/E/
+    - xform/uai$/E/
+    - xform/uan$/F/
+    - xform/ai$/I/
+    - xform/an$/Y/
+    - xform/ao$/S/
+    - xform/ou$/C/
+    - xform/ei$/W/
+    - xform/en$/M/
+    - xform/er$/F/
+    - xform/ia$/X/
     - xform/ie$/;/
-    - xform/in$/Y/
-    - xform/iu$/J/
-    - xform/ua$/Q/
-    - xform/ue$/F/
-    - xform/ui$/F/
-    - xform/un$/K/
-    - xform/uo$/V/
-    - xform/ve$/F/
-    - xform/a$/H/
-    - xform/o$/V/
-    - xform/e$/N/
-    - xform/u$/O/
-    - xform/v$/D/
+    - xform/in$/B/
+    - xform/iu$/Q/
+    - xform/ua$/X/
+    - xform/ue$/J/
+    - xform/ui$/V/
+    - xform/un$/Z/
+    - xform/uo$/L/
+    - xform/ve$/J/
+    - xform/o/L/
+    - xform/e/D/
+    - xform/i$/R/
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
 
 translator:
