@@ -49,9 +49,9 @@ map('n', '<C-t>', ':tabnew split<cr>', {})
 map('n', '<leader><cr>', ':nohlsearch<cr>', {})
 map('n', 'X', ':bd|bp<cr>', {})
 -- Telescope Keymap
-map('n', '<leader>tt', '<cmd>Telescope find_files<cr>', {})
-map('n', '<leader>tg', '<cmd>Telescope live_grep<cr>', {})
-map('n', '<leader>tb', '<cmd>Telescope buffers<cr>', {})
+map('n', '<leader>se', '<cmd>Telescope find_files<cr>', {})
+map('n', '<leader>sg', '<cmd>Telescope live_grep<cr>', {})
+map('n', '<leader>sb', '<cmd>Telescope buffers<cr>', {})
 -- Nvim-Tree Keymap
 map('n', '<leader>ee', '<cmd>NvimTreeToggle<cr>', {})
 -- Buffer-Line Keymap
@@ -71,3 +71,4 @@ map('n', '<leader>bp', '<cmd>BufferLinePick<cr>', {})
 map('n', '<leader>T', '<cmd>ToggleTerm<cr>', {})
 -- format
 map('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})
+map('n', '<leader>h', ':call mdip#MarkdownClipboardImage()<cr>', {})

@@ -26,6 +26,8 @@ return require('packer').startup(function()
     end
   }
 
+  use 'kyazdani42/nvim-web-devicons'
+
   -- MyStatusLine
   use({
     'NTBBloodbath/galaxyline.nvim',
@@ -85,7 +87,10 @@ return require('packer').startup(function()
 
   -- markdown-preview.nvim
   use({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install',
-    setup = function() vim.g.mkdp_filetypes = { 'markdown' } vim.g.mkdp_browser = 'wsl-open' end, ft = { 'markdown' } })
+    setup = function() vim.g.mkdp_filetypes = { 'markdown' } end, ft = { 'markdown' } })
+
+  -- md-img-paste.vim
+  use 'ferrine/md-img-paste.vim'
 
   -- switch
   use { 'Leiyi548/vim-im-select' }

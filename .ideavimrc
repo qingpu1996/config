@@ -43,34 +43,44 @@ nnoremap U <C-r>
 noremap X :q<CR>
 nnoremap gn gt
 nnoremap gi gT
-noremap <leader>sr :action SurroundWith<CR>
-noremap <leader>cc :action Generate<CR>
-noremap <leader>se :action SearchEverywhere<CR>
-noremap <leader>st :action FindInPath<CR>
-noremap <leader>tu :action FindUsages<CR>
 noremap <leader>bb :action ToggleLineBreakpoint<CR>
+noremap <leader>ca :action CloseActiveTab<CR>
+noremap <leader>cn :action CommentByBlockComment<CR>
+noremap <leader>cl :action CommentByLineComment<CR>
+noremap <leader>cc :action Generate<CR>
+noremap <leader>cd :action ContextDebug<CR>
+noremap <leader>df :action MoveMethodDown<CR>
+noremap <leader>ds :action MoveStateDown<CR>
+noremap <leader>dd :action Debug<CR>
+noremap <leader>en :action GotoNextError<CR>
+noremap <leader>ei :action GotoPreviousError<CR>
 noremap <leader>ga :action GotoAction<CR>
 noremap <leader>gc :action GotoClass<CR>
 noremap <leader>ge :action GotoDeclaration<CR>
 noremap <leader>gt :action GotoTest<CR>
 noremap <leader>gi :action GotoImplementation<CR>
-noremap <leader>sf :action ShowFilePath<CR>
-noremap <leader>re :action RenameElement<CR>
-noremap <leader>rf :action RenameFile<CR>
-noremap <leader>su :action ShowUsages<CR>
+noremap <leader>iv :action IntroduceVariable<CR>
+noremap <leader>ii :action Back<CR>
 noremap <leader>lr :action OptimizeImports<CR>
 noremap <leader>lu :action OverrideMethods<CR>
-noremap <leader>rc :action ReformatCode<CR>
-noremap <leader>qe :action QuickJavaDoc<CR>
-noremap <leader>si :action ShowIntentionActions<CR>
-noremap <leader>ca :action CloseActiveTab<CR>
-noremap <leader>en :action GotoNextError<CR>
-noremap <leader>ei :action GotoPreviousError<CR>
 noremap <leader>mr :action Maven.Reimport<CR>
-noremap <leader>iv :action IntroduceVariable<CR>
-noremap <leader>cn :action CommentByBlockComment<CR>
-noremap <leader>cl :action CommentByLineComment<CR>
+noremap <leader>nn :action Forward<CR>
+noremap <leader>qe :action QuickJavaDoc<CR>
+noremap <leader>rp :action Refactorings.QuickListPopupAction<CR>
+noremap <leader>rc :action ReformatCode<CR>
+noremap <leader>re :action RenameElement<CR>
+noremap <leader>rt :action RerunTests<CR>
+noremap <leader>rn :action RunConfiguration<CR>
+noremap <leader>rf :action RerunFailedTests<CR>
+
+noremap <leader>sr :action SurroundWith<CR>
+noremap <leader>se :action SearchEverywhere<CR>
+noremap <leader>st :action FindInPath<CR>
+noremap <leader>sf :action ShowFilePath<CR>
 noremap <leader>so :action SelectInProjectView<CR>
+noremap <leader>si :action ShowIntentionActions<CR>
+noremap <leader>su :action ShowUsages<CR>
+noremap <leader>tu :action FindUsages<CR>
 noremap <leader>tt :action ToggleBookmark<CR>
 noremap <leader>tp :action ToggleBookmarkWithMnemonic<CR>
 noremap <leader>te :action DeleteMnemonicFromBookmark<CR>
@@ -83,9 +93,12 @@ noremap <leader>ts :action ShowBookmarks<CR>
 noremap <leader>ta :action $EditorTranslateAction<CR>
 noremap <leader>tr :action $TranslateAndReplaceAction<CR>
 noremap <leader>tm :action TranslationPopupMenu<CR>
+noremap <leader>uf :action MoveMethodUp<CR>
+noremap <leader>us :action MoveStateUp<CR>
 set ignorecase
 set smartcase
 set nu
 set relativenumber
 set keep-english-in-normal
 set keep-english-in-normal-and-restore-in-insert
+set easymotion
