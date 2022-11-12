@@ -49,6 +49,7 @@ noremap <leader>cn :action CommentByBlockComment<CR>
 noremap <leader>cl :action CommentByLineComment<CR>
 noremap <leader>cc :action Generate<CR>
 noremap <leader>cd :action ContextDebug<CR>
+noremap <leader>cr :action ContextRun<CR>
 noremap <leader>df :action MoveMethodDown<CR>
 noremap <leader>ds :action MoveStateDown<CR>
 noremap <leader>dd :action Debug<CR>
@@ -69,17 +70,18 @@ noremap <leader>qe :action QuickJavaDoc<CR>
 noremap <leader>rp :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>rc :action ReformatCode<CR>
 noremap <leader>re :action RenameElement<CR>
-noremap <leader>rt :action RerunTests<CR>
+noremap <leader>rt :action Run<CR>
 noremap <leader>rn :action RunConfiguration<CR>
 noremap <leader>rf :action RerunFailedTests<CR>
+noremap <leader>ra :action RunAnything<CR>
 
 noremap <leader>sr :action SurroundWith<CR>
 noremap <leader>se :action SearchEverywhere<CR>
-noremap <leader>st :action FindInPath<CR>
 noremap <leader>sf :action ShowFilePath<CR>
 noremap <leader>so :action SelectInProjectView<CR>
 noremap <leader>si :action ShowIntentionActions<CR>
 noremap <leader>su :action ShowUsages<CR>
+noremap <leader>sg :action FindInPath<CR>
 noremap <leader>tu :action FindUsages<CR>
 noremap <leader>tt :action ToggleBookmark<CR>
 noremap <leader>tp :action ToggleBookmarkWithMnemonic<CR>
