@@ -70,5 +70,5 @@ map('n', '<leader>bp', '<cmd>BufferLinePick<cr>', {})
 -- toggleterm Keymap
 map('n', '<leader>T', '<cmd>ToggleTerm<cr>', {})
 -- format
-map('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})
+map('n', '<leader>F', '<cmd>lua vim.lsp.buf.format { async = true } <cr>', {})
 map('n', '<leader>h', ':call mdip#MarkdownClipboardImage()<cr>', {})
