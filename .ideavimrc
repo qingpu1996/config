@@ -68,7 +68,6 @@ noremap <leader>mr :action Maven.Reimport<CR>
 noremap <leader>nn :action Forward<CR>
 noremap <leader>qe :action QuickJavaDoc<CR>
 noremap <leader>rp :action Refactorings.QuickListPopupAction<CR>
-noremap <leader>rc :action ReformatCode<CR>
 noremap <leader>re :action RenameElement<CR>
 noremap <leader>rt :action Run<CR>
 noremap <leader>rn :action RunConfiguration<CR>
@@ -97,6 +96,7 @@ noremap <leader>tr :action $TranslateAndReplaceAction<CR>
 noremap <leader>tm :action TranslationPopupMenu<CR>
 noremap <leader>uf :action MoveMethodUp<CR>
 noremap <leader>us :action MoveStateUp<CR>
+noremap <leader>F :action ReformatCode<CR>
 set ignorecase
 set smartcase
 set nu

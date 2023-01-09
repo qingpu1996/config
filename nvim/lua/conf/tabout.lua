@@ -10,7 +10,7 @@ tabout.setup {
   act_as_tab = true,
   act_as_shift_tab = false,
   enable_backwards = true,
-  completion = true,
+  completion = false,
   tabouts = {
     {open = "'", close = "'"},
     {open = '"', close = '"'},
