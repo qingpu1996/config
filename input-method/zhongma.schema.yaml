@@ -1,0 +1,87 @@
+﻿# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: zhongma
+  name: "中码五笔"
+  version: "3.1.0"
+  author:
+    - 發明人 王青佐先生
+  description: |
+    中码五笔3.1.0版
+    碼表源自 中码汉字输入法QQ群：7958909
+    敲 ' 鍵進入拼音反查
+  dependencies:
+    - pinyin_simp
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [漢, 汉]
+    reset: 1
+  - name: extended_charset
+    states: [ 常用, 增廣 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+
+speller:
+  alphabet: "abcdefgijklmnopqrstuvwxyz;h"                  #定义本方案输入键
+  delimiter: "`"
+  auto_select: true
+  auto_clear: manual  #自动清码参数：manual空码按下一键确认清屏、auto空码自动清、max_length达最长码时后码顶上清屏
+
+translator:
+  dictionary: zhongma
+  enable_charset_filter: false
+  enable_sentence: false
+  enable_encoder: false
+  encode_commit_history: false 
+  max_phrase_length: 4
+  enable_completion: true
+  disable_user_dict_for_patterns:
+    - "^[a-z]{1,3}$"
+
+reverse_lookup:
+  dictionary: pinyin_simp
+  prefix: "`"
+  suffix: "'"
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: symbols
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: '^/([0-9]0?|[A-Za-z]+)$'
+    reverse_lookup: "^`[a-z]*'?$"
+
