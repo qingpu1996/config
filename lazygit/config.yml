@@ -1,0 +1,94 @@
+# Lazygit keybindings translated for the Norman layout.
+#
+# Navigation mirrors the Neovim Norman layer in this repo:
+#   y = left, n = down, i = up, o = right
+#
+# Most action keys below follow the same idea: translate Lazygit's default
+# QWERTY-oriented key to the Norman key that occupies the same logical role in
+# this repo's Neovim mapping. Unchanged QWERTY keys are omitted.
+
+keybinding:
+  universal:
+    # Navigation.
+    prevItem: '<up>'
+    nextItem: '<down>'
+    prevItem-alt: 'i'
+    nextItem-alt: 'n'
+    prevBlock: '<left>'
+    nextBlock: '<right>'
+    prevBlock-alt: 'y'
+    nextBlock-alt: 'o'
+    prevBlock-alt2: '<backtab>'
+    nextBlock-alt2: '<tab>'
+
+    # Search matches use the same conflict-avoidance pattern as Lazygit's
+    # official Colemak example, leaving Norman navigation keys free.
+    nextMatch: '='
+    prevMatch: '-'
+
+    # Fast movement.
+    scrollUpMain: '<pgup>'
+    scrollDownMain: '<pgdown>'
+    scrollUpMain-alt1: 'I'
+    scrollDownMain-alt1: 'N'
+    scrollUpMain-alt2: '<c-u>'
+    scrollDownMain-alt2: '<c-d>'
+    scrollLeft: 'Y'
+    scrollRight: 'O'
+
+    # QWERTY -> Norman action translations.
+    remove: 'e'
+    new: 'p'
+    edit: 'd'
+    openFile: 'l'
+    pushFiles: 'H'
+    pullFiles: 'h'
+    createPatchOptionsMenu: '<c-h>'
+    copyToClipboard: '<c-l>'
+    openRecentRepos: '<c-f>'
+
+  files:
+    ignoreFile: 'r'
+    refreshFiles: 'f'
+    fetch: 't'
+    copyFileInfoToClipboard: 'j'
+
+  branches:
+    createPullRequest: 'l'
+    viewPullRequestOptions: 'L'
+    copyPullRequestURL: '<c-j>'
+    forceCheckoutBranch: 'T'
+    rebaseBranch: 'f'
+    renameBranch: 'F'
+    moveCommitsToNewBranch: 'P'
+    viewGitFlowOptions: 'r'
+    fastForward: 't'
+    pushTag: 'H'
+
+  commits:
+    renameCommit: 'f'
+    renameCommitWithEditor: 'F'
+    markCommitAsFixup: 't'
+    createFixupCommit: 'T'
+    moveDownCommit: ['N', '<alt-down>']
+    moveUpCommit: ['I', '<alt-up>']
+    pickCommit: 'h'
+    revertCommit: 'k'
+    copyCommitAttributeToClipboard: 'j'
+    openLogMenu: '<c-o>'
+    openInBrowser: 'l'
+    startInteractiveRebase: 'r'
+
+  stash:
+    renameStash: 'f'
+
+  submodules:
+    init: 'r'
+
+  main:
+    # Hunk navigation follows Norman left/right.
+    prevHunk: ['<left>', 'y']
+    nextHunk: ['<right>', 'o']
+
+  commitMessage:
+    commitMenu: '<c-l>'

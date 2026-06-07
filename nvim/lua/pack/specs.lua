@@ -1,0 +1,14 @@
+return {
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  { src = "https://github.com/Saghen/blink.cmp", version = "v1" },
+  "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/stevearc/conform.nvim",
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/folke/which-key.nvim",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/echasnovski/mini.nvim",
+  "https://github.com/hedyhli/outline.nvim",
+  "https://github.com/jiaoshijie/undotree",
+}
