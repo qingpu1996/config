@@ -226,7 +226,11 @@ brew install yazi fzf ripgrep fd bat
 
 ### Phase 3：Git TUI
 
-安装 lazygit，先在外部终端用。确认快捷键和 Norman 布局后，再决定是否加 Neovim 内置打开方式。
+安装 lazygit，并通过 `kdheepak/lazygit.nvim` 在 Neovim 内打开：
+
+| 快捷键 | 动作 |
+| --- | --- |
+| `<leader>lg` | 打开 lazygit.nvim 浮窗 |
 
 ### Phase 4：Java
 

@@ -9,6 +9,7 @@ return {
   "https://github.com/folke/which-key.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/kdheepak/lazygit.nvim",
   "https://github.com/mikavilpas/yazi.nvim",
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/hedyhli/outline.nvim",

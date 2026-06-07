@@ -185,13 +185,9 @@ keybinding:
 
 - https://github.com/kdheepak/lazygit.nvim
 
-但我的建议是先不要急着装插件：
+当前已经接入 `lazygit.nvim`，由 `vim.pack` 管理，并用 `<leader>lg` 在 Neovim 浮窗中打开 lazygit。
 
-1. 先把 lazygit 作为独立终端 TUI 用顺。
-2. 确认 Norman 快捷键配置。
-3. 再决定是否集成到 Neovim。
-
-原因是 lazygit 本身已经是完整 TUI。把它嵌进 Neovim 浮窗之后，可能出现终端 nested TUI、focus、复制、窗口大小、快捷键冲突等额外问题。你的目标是形成可靠工作流，不是为了插件而插件。
+保留的判断是：lazygit 本身仍然是完整 TUI，如果后续发现嵌入浮窗在 focus、复制、窗口大小或快捷键上不如独立终端稳定，可以再退回外部终端使用。
 
 ## 推荐 Git 工作流
 
@@ -208,8 +204,7 @@ Codex CLI: review、diff、改动解释、自动修复
 后续 Neovim 内可选集成：
 
 - `gitsigns.nvim`：必装，轻量，负责 buffer 内 Git 信号。
-- 内置 terminal：当前采用，`<leader>g` 在新 tab 中运行 `lazygit`，不额外依赖插件。
-- `lazygit.nvim`：可选替代，只负责从 Neovim 打开 lazygit。
+- `lazygit.nvim`：当前采用，`<leader>lg` 在 Neovim 浮窗中打开 lazygit。
 - `diffview.nvim`：可选，负责复杂 diff/review。
 
-我的建议是先只上 `gitsigns.nvim + 外部/内置 terminal lazygit`。
+我的建议是先只上 `gitsigns.nvim + lazygit.nvim`。复杂 diff/review 等真的需要时再加。

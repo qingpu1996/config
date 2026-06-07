@@ -7,7 +7,7 @@
 我在本机看到的状态：
 
 - Homebrew formula 里有 `neovim`、`gh`、`node@24`、`python@3.12`、`python@3.14`、`ollama` 等。
-- `lazygit` 当前没有安装。
+- `lazygit` 已经通过 Homebrew 安装。
 - `brew list --cask` 当前为空，也就是 Ghostty、WezTerm、Warp、iTerm2 这些 cask 都没有通过 Homebrew 安装。
 - 之前这台机器上已经做过 zsh / Oh My Zsh / Powerlevel10k / Nerd Font 方向的终端美化，后续改 shell 配置时应该继续保留和备份已有 `~/.zshrc`。
 
@@ -173,6 +173,5 @@ export VISUAL=nvim
 1. `brew install --cask ghostty`
 2. 设置字体为已安装的 Nerd Font，比如 `MesloLGS NF`。
 3. 用 Ghostty 跑 `nvim`、`codex`、`gh`、`brew`，确认输入法、中文、复制粘贴、图标都正常。
-4. 安装 `lazygit`。
+4. 在 Neovim 里验证 `lazygit.nvim` 的 `<leader>lg` 入口。
 5. 如果 Ghostty 不顺手，再试 WezTerm。
-

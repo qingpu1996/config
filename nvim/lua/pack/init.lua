@@ -43,6 +43,7 @@ for _, name in ipairs({
   "gitsigns",
   "which-key",
   "fzf",
+  "lazygit",
   "yazi",
   "mini",
   "outline",
