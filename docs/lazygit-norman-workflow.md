@@ -208,8 +208,8 @@ Codex CLI: review、diff、改动解释、自动修复
 后续 Neovim 内可选集成：
 
 - `gitsigns.nvim`：必装，轻量，负责 buffer 内 Git 信号。
-- `snacks.nvim`：当前采用，负责 picker 和从 Neovim 打开 lazygit。
+- 内置 terminal：当前采用，`<leader>g` 在新 tab 中运行 `lazygit`，不额外依赖插件。
 - `lazygit.nvim`：可选替代，只负责从 Neovim 打开 lazygit。
 - `diffview.nvim`：可选，负责复杂 diff/review。
 
-我的建议是先只上 `gitsigns.nvim + 外部 lazygit`。
+我的建议是先只上 `gitsigns.nvim + 外部/内置 terminal lazygit`。

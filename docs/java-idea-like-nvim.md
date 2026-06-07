@@ -105,7 +105,8 @@ Eclipse JDT Language Server 是 Java LSP 的核心。它支持 Maven、Gradle、
 | Completion | `blink.cmp` |
 | Formatter | JDT LS formatting 或 `conform.nvim` fallback |
 | Diagnostics UI | `trouble.nvim` |
-| Fuzzy/LSP action | `snacks.picker` |
+| Fuzzy/LSP action | `fzf-lua` |
+| File manager | `yazi.nvim` + `yazi` |
 
 如果选择 `nvim-jdtls` 手工路线，还需要处理：
 

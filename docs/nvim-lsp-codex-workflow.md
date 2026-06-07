@@ -12,9 +12,10 @@
 - 补全：优先看 `blink.cmp`，备选是老牌 `nvim-cmp`。
 - 格式化：`conform.nvim`。
 - lint：`nvim-lint`。
-- fuzzy finder：`snacks.picker`。
+- fuzzy finder：`fzf-lua`。
+- 文件管理：`yazi` + `yazi.nvim`，替代传统目录树。
 - Git buffer 集成：`gitsigns.nvim`。
-- 辅助 UI：`which-key.nvim`、`trouble.nvim`，按需要再加 `oil.nvim` 或文件树。
+- 辅助 UI：`which-key.nvim`、`trouble.nvim`。
 - Codex：目前没有看到 OpenAI 官方的一方 Neovim 插件。建议先用 Codex CLI 作为终端 agent，通过 `$EDITOR=nvim`、`AGENTS.md`、MCP、终端 pane 和后续简单 Neovim command 连接。
 
 ## 包管理器
@@ -81,7 +82,8 @@ vim.lsp.enable("pyright")
 | completion | `Saghen/blink.cmp` | LSP、cmdline、snippet、buffer 等补全 |
 | formatting | `stevearc/conform.nvim` | format on save、formatter 编排 |
 | linting | `mfussenegger/nvim-lint` | 独立 linter 输出到 `vim.diagnostic` |
-| picker | `folke/snacks.nvim` | 文件、grep、buffer、recent、help、LSP symbol/action |
+| picker | `ibhagwan/fzf-lua` | 文件、grep、buffer、recent、help、LSP symbol/action |
+| file manager | `mikavilpas/yazi.nvim` + `yazi` | 浮动终端文件管理、目录 buffer 接管、和 fzf-lua grep 集成 |
 | Git signs | `lewis6991/gitsigns.nvim` | buffer 内显示/stage/reset hunk |
 | key hint | `folke/which-key.nvim` | 快捷键提示，适合 Norman 映射梳理 |
 | diagnostics list | `folke/trouble.nvim` | diagnostics、references、quickfix、picker 结果列表 |
@@ -92,7 +94,9 @@ vim.lsp.enable("pyright")
 - https://github.com/Saghen/blink.cmp
 - https://github.com/stevearc/conform.nvim
 - https://github.com/mfussenegger/nvim-lint
-- https://github.com/folke/snacks.nvim
+- https://github.com/ibhagwan/fzf-lua
+- https://github.com/mikavilpas/yazi.nvim
+- https://github.com/sxyazi/yazi
 - https://github.com/lewis6991/gitsigns.nvim
 - https://github.com/folke/which-key.nvim
 - https://github.com/folke/trouble.nvim
@@ -201,9 +205,24 @@ TypeScript 有两条路线：
 - `tailwindcss`
 - `conform.nvim`
 - `nvim-lint`
-- `snacks.nvim`
+- `fzf-lua`
+- `yazi.nvim`
 - `gitsigns.nvim`
 - `trouble.nvim`
+
+`fzf-lua` 和 `yazi.nvim` 本身是 Neovim 插件，但要发挥性能优势，外部工具也应该安装：
+
+```sh
+brew install yazi fzf ripgrep fd bat
+```
+
+当前映射：
+
+| 快捷键 | 动作 |
+| --- | --- |
+| `<leader>e` | 打开 yazi，默认从当前 buffer/选中项进入 |
+| `<leader>E` | 从当前工作目录打开 yazi |
+| yazi 内 `<c-s>` | 用 `fzf-lua` 在当前目录或选中文件里 grep |
 
 ### Phase 3：Git TUI
 
