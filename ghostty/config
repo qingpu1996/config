@@ -13,3 +13,6 @@ window-decoration = true
 # macOS
 macos-titlebar-style = tabs
 macos-option-as-alt = true
+
+# theme
+theme = Monokai Soda
