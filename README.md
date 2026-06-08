@@ -10,6 +10,7 @@
 | --- | --- |
 | `nvim/` | Neovim 配置，当前主力维护对象 |
 | `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配 |
+| `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
 | `input-method/` | Rime/Squirrel 相关输入法配置 |
 | `docs/` | Neovim、lazygit、终端和 Java 工作流调研记录 |
 
@@ -188,6 +189,36 @@ macOS 默认配置路径已设计为软链接到这个文件：
 这个配置主要做 Norman 布局适配。完整说明见：
 
 - [lazygit 和 Norman 布局](docs/lazygit-norman-workflow.md)
+
+## yazi
+
+yazi 键位配置文件在：
+
+```text
+yazi/keymap.toml
+```
+
+macOS 默认配置路径已设计为软链接到这个文件：
+
+```text
+~/.config/yazi/keymap.toml
+```
+
+如果新机器上还没有链接，可以用：
+
+```sh
+mkdir -p ~/.config/yazi
+ln -sfn "$HOME/Documents/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
+```
+
+这个配置主要做 Norman 布局适配，翻译原则和 lazygit 一致：
+
+- 导航固定为 `i/n/y/o`（上/下/左/右），同时保留方向键 fallback。
+- 被导航键挤掉的功能按 `nvim/lua/config/norman.lua` 的映射关系迁移：`yank → j`、`open → l`、`find next → p`、`rename → f`、`filter → t`。
+- `[confirm]` 层的 `y`/`n`（yes/no）保持语义不变，只翻译导航键。
+- `[input]` 层的 vim-like 模式做完整 Norman 翻译：`insert → r`、`word end → d`、`delete → e`。
+
+完整配置以 `yazi/keymap.toml` 为准。使用中如果发现冲突，在 yazi 内按 `~` 查看当前面板的键位绑定。
 
 ## 文档
 
