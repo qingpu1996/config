@@ -1,0 +1,15 @@
+# Ghostty configuration for Norman layout workflow.
+# Docs: https://ghostty.org/docs/config
+
+# Font
+font-family = MapleMono-NF
+font-size = 14
+
+# Window
+window-padding-x = 4
+window-padding-y = 4
+window-decoration = true
+
+# macOS
+macos-titlebar-style = tabs
+macos-option-as-alt = true

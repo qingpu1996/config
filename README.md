@@ -11,6 +11,7 @@
 | `nvim/` | Neovim 配置，当前主力维护对象 |
 | `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配 |
 | `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
+| `ghostty/config` | Ghostty 终端配置 |
 | `input-method/` | Rime/Squirrel 相关输入法配置 |
 | `docs/` | Neovim、lazygit、终端和 Java 工作流调研记录 |
 
@@ -219,6 +220,30 @@ ln -sfn "$HOME/Documents/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.tom
 - `[input]` 层的 vim-like 模式做完整 Norman 翻译：`insert → r`、`word end → d`、`delete → e`。
 
 完整配置以 `yazi/keymap.toml` 为准。使用中如果发现冲突，在 yazi 内按 `~` 查看当前面板的键位绑定。
+
+## Ghostty
+
+Ghostty 终端配置文件在：
+
+```text
+ghostty/config
+```
+
+macOS 默认配置路径已设计为软链接到这个文件：
+
+```text
+~/.config/ghostty/config
+```
+
+如果新机器上还没有链接，可以用：
+
+```sh
+brew install --cask ghostty
+mkdir -p ~/.config/ghostty
+ln -sfn "$HOME/Documents/config/ghostty/config" "$HOME/.config/ghostty/config"
+```
+
+当前配置：字体 Maple Mono NF（`brew install --cask font-maple-mono-nf`），macOS 标签栏风格，Option 键作为 Alt。
 
 ## 文档
 
