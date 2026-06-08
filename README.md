@@ -11,6 +11,7 @@
 | `nvim/` | Neovim 配置，当前主力维护对象 |
 | `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配 |
 | `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
+| `yazi/yazi.toml` | yazi 行为配置，包含 Neovim opener |
 | `ghostty/config` | Ghostty 终端配置 |
 | `input-method/` | Rime/Squirrel 相关输入法配置 |
 | `docs/` | Neovim、lazygit、终端和 Java 工作流调研记录 |
@@ -193,15 +194,17 @@ macOS 默认配置路径已设计为软链接到这个文件：
 
 ## yazi
 
-yazi 键位配置文件在：
+yazi 配置文件在：
 
 ```text
+yazi/yazi.toml
 yazi/keymap.toml
 ```
 
 macOS 默认配置路径已设计为软链接到这个文件：
 
 ```text
+~/.config/yazi/yazi.toml
 ~/.config/yazi/keymap.toml
 ```
 
@@ -209,15 +212,34 @@ macOS 默认配置路径已设计为软链接到这个文件：
 
 ```sh
 mkdir -p ~/.config/yazi
+ln -sfn "$HOME/Documents/config/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 ln -sfn "$HOME/Documents/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
 ```
 
-这个配置主要做 Norman 布局适配，翻译原则和 lazygit 一致：
+`yazi/yazi.toml` 当前把文本类文件固定交给 `nvim` 打开，避免落到 `${EDITOR:-vi}` 的默认行为。
+
+`yazi/keymap.toml` 主要做 Norman 布局适配，翻译原则和 lazygit 一致：
 
 - 导航固定为 `i/n/y/o`（上/下/左/右），同时保留方向键 fallback。
 - 被导航键挤掉的功能按 `nvim/lua/config/norman.lua` 的映射关系迁移：`yank → j`、`open → l`、`find next → p`、`rename → f`、`filter → t`。
 - `[confirm]` 层的 `y`/`n`（yes/no）保持语义不变，只翻译导航键。
 - `[input]` 层的 vim-like 模式做完整 Norman 翻译：`insert → r`、`word end → d`、`delete → e`。
+
+常用入口：
+
+| 快捷键 | 说明 |
+| --- | --- |
+| `i` / `n` | 上/下移动 |
+| `y` / `o` | 进入父目录 / 进入子目录 |
+| `l` | 打开文件，文本文件会用 Neovim |
+| `s` | 按文件名搜索 |
+| `S` | 按文件内容搜索 |
+| `z` | 使用 fzf 跳转目录 |
+| `t` | filter 当前列表 |
+| Neovim 内 yazi 的 `<c-s>` | 通过 `fzf-lua` 在当前目录或选中文件里 grep |
+| Neovim 内 yazi 的 `<c-\>` | 把 Neovim cwd 切到 yazi 当前目录 |
+
+独立终端里的 yazi 不能直接修改父 shell 的 cwd。如果希望退出 yazi 后 shell 自动切到 yazi 当前目录，需要按官方建议用 `yazi --cwd-file` 包一层 zsh function；Neovim 里的 yazi.nvim 则直接用上表的 `<c-\>` 切换 Neovim cwd。
 
 完整配置以 `yazi/keymap.toml` 为准。使用中如果发现冲突，在 yazi 内按 `~` 查看当前面板的键位绑定。
 
