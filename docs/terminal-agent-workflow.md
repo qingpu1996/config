@@ -91,7 +91,7 @@ Warp 现在明显偏“AI/agent terminal”产品方向。它有自己的文档�
 
 不作为默认推荐的原因：
 
-- 你的核心工作流是 Norman 布局 + Neovim + CLI agent。
+- 这个分支面向 QWERTY 用户，核心工作流是 Neovim + CLI agent。
 - Warp 的增强交互可能会改变传统 TUI 操作模型。
 - 对长期 dotfiles 可迁移性来说，Ghostty/WezTerm 更朴素。
 

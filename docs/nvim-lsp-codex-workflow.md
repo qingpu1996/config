@@ -85,7 +85,7 @@ vim.lsp.enable("pyright")
 | picker | `ibhagwan/fzf-lua` | 文件、grep、buffer、recent、help、LSP symbol/action |
 | file manager | `mikavilpas/yazi.nvim` + `yazi` | 浮动终端文件管理、目录 buffer 接管、和 fzf-lua grep 集成 |
 | Git signs | `lewis6991/gitsigns.nvim` | buffer 内显示/stage/reset hunk |
-| key hint | `folke/which-key.nvim` | 快捷键提示，适合 Norman 映射梳理 |
+| key hint | `folke/which-key.nvim` | 快捷键提示，适合梳理 `<leader>` 工作流 |
 | diagnostics list | `folke/trouble.nvim` | diagnostics、references、quickfix、picker 结果列表 |
 
 来源：
@@ -179,7 +179,7 @@ TypeScript 有两条路线：
 已经完成：
 
 - 无插件 baseline。
-- Norman 映射保留。
+- 保留 QWERTY 默认键位，不加载键盘布局重映射。
 - `~/.config/nvim` 指向这个仓库的 `nvim/`。
 
 ### Phase 1：插件管理 + LSP 基础

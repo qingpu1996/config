@@ -1,6 +1,5 @@
 require("config.options")
 require("config.keymaps")
-require("config.norman")
 require("config.autocmds")
 require("config.treesitter")
 require("pack")

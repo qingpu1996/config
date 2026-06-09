@@ -2,6 +2,8 @@
 
 这个仓库放个人常用配置，主要用于重装系统或换机器后快速恢复工作环境。
 
+当前分支 `mac-qwerty` 面向 QWERTY 布局用户，主要用于分享给同事。个人 Norman 布局配置保留在 `mac` 分支。
+
 当前重点是 macOS 上的 Neovim、lazygit 和输入法配置。其中输入法配置先保留现状，主要维护方向是 `nvim + LSP + Codex + lazygit` 的代码工作流。
 
 ## 目录
@@ -9,8 +11,8 @@
 | 路径 | 说明 |
 | --- | --- |
 | `nvim/` | Neovim 配置，当前主力维护对象 |
-| `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配和 Catppuccin Mocha 主题 |
-| `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
+| `lazygit/config.yml` | lazygit 配置，包含 Catppuccin Mocha 主题 |
+| `yazi/keymap.toml` | yazi 键位占位文件，本分支保留默认 QWERTY 键位 |
 | `yazi/yazi.toml` | yazi 行为配置，包含 Neovim opener |
 | `yazi/theme.toml` | yazi Catppuccin Mocha 主题 |
 | `yazi/Catppuccin-mocha.tmTheme` | yazi 预览窗语法高亮主题 |
@@ -62,10 +64,9 @@ brew install neovim yazi lazygit fzf ripgrep fd bat
 
 1. `lua/config/options.lua`：基础选项，包含 leader、netrw 禁用等。
 2. `lua/config/keymaps.lua`：通用快捷键。
-3. `lua/config/norman.lua`：Norman 布局按键重映射。
-4. `lua/config/autocmds.lua`：自动命令。
-5. `lua/config/treesitter.lua`：使用 Neovim 内置 treesitter 高亮能力。
-6. `lua/pack/init.lua`：`vim.pack` 插件管理和插件配置加载。
+3. `lua/config/autocmds.lua`：自动命令。
+4. `lua/config/treesitter.lua`：使用 Neovim 内置 treesitter 高亮能力。
+5. `lua/pack/init.lua`：`vim.pack` 插件管理和插件配置加载。
 
 插件列表集中在：
 
@@ -131,15 +132,15 @@ nvim/nvim-pack-lock.json
 | `<C-t>` | 当前 buffer 打开到新 tab |
 | `X` | 删除当前 buffer |
 
-窗口移动按 Norman 习惯配置：
+窗口移动：
 
 | 快捷键 | 动作 |
 | --- | --- |
 | `<leader>w` | 下一个窗口 |
-| `<leader>i` | 上方窗口 |
-| `<leader>n` | 下方窗口 |
-| `<leader>y` | 左侧窗口 |
-| `<leader>o` | 右侧窗口 |
+| `<leader>h` | 左侧窗口 |
+| `<leader>j` | 下方窗口 |
+| `<leader>k` | 上方窗口 |
+| `<leader>l` | 右侧窗口 |
 
 搜索和跳转：
 
@@ -166,7 +167,7 @@ nvim/nvim-pack-lock.json
 | yazi 内 `<c-s>` | 用 `fzf-lua` 在当前目录或选中文件里 grep |
 | `<leader>lg` | 打开 lazygit |
 
-Norman 布局的基础按键重映射在 `nvim/lua/config/norman.lua`，这里不展开完整表。后续如果某个插件和 Norman 冲突，优先在插件自己的 config 里处理。
+本分支不加载键盘布局重映射，保留 Neovim 和各插件的 QWERTY 默认习惯。
 
 ### 健康检查
 
@@ -192,9 +193,9 @@ macOS 默认配置路径已设计为软链接到这个文件：
 ~/Library/Application Support/lazygit/config.yml
 ```
 
-这个配置主要做 Norman 布局适配。完整说明见：
+这个配置保留 lazygit 默认 QWERTY 键位，只额外设置 Catppuccin 主题。完整说明见：
 
-- [lazygit 和 Norman 布局](docs/lazygit-norman-workflow.md)
+- [lazygit 工作流](docs/lazygit-workflow.md)
 
 当前 lazygit 主题使用 Catppuccin Mocha Mauve，直接写入 `lazygit/config.yml` 的 `gui.theme`，不需要额外修改启动命令。
 
@@ -234,30 +235,21 @@ ln -sfn "$HOME/Documents/config/yazi/Catppuccin-mocha.tmTheme" "$HOME/.config/ya
 
 `yazi/theme.toml` 当前使用 Catppuccin Mocha Mauve；预览窗语法高亮使用同目录下的 `Catppuccin-mocha.tmTheme`。
 
-`yazi/keymap.toml` 主要做 Norman 布局适配，翻译原则和 lazygit 一致：
-
-- 导航固定为 `i/n/y/o`（上/下/左/右），同时保留方向键 fallback。
-- 被导航键挤掉的功能按 `nvim/lua/config/norman.lua` 的映射关系迁移：`yank → j`、`open → l`、`find next → p`、`rename → f`、`filter → t`。
-- `[confirm]` 层的 `y`/`n`（yes/no）保持语义不变，只翻译导航键。
-- `[input]` 层的 vim-like 模式做完整 Norman 翻译：`insert → r`、`word end → d`、`delete → e`。
+`yazi/keymap.toml` 在本分支只作为占位文件存在，不覆盖 yazi 默认 QWERTY 键位。
 
 常用入口：
 
 | 快捷键 | 说明 |
 | --- | --- |
-| `i` / `n` | 上/下移动 |
-| `y` / `o` | 进入父目录 / 进入子目录 |
-| `l` | 打开文件，文本文件会用 Neovim |
-| `s` | 按文件名搜索 |
-| `S` | 按文件内容搜索 |
-| `z` | 使用 fzf 跳转目录 |
-| `t` | filter 当前列表 |
+| `j` / `k` | 下/上移动 |
+| `h` / `l` | 进入父目录 / 进入子目录 |
+| `o` | 打开文件，文本文件会用 Neovim |
 | Neovim 内 yazi 的 `<c-s>` | 通过 `fzf-lua` 在当前目录或选中文件里 grep |
 | Neovim 内 yazi 的 `<c-\>` | 把 Neovim cwd 切到 yazi 当前目录 |
 
 独立终端里的 yazi 不能直接修改父 shell 的 cwd。如果希望退出 yazi 后 shell 自动切到 yazi 当前目录，需要按官方建议用 `yazi --cwd-file` 包一层 zsh function；Neovim 里的 yazi.nvim 则直接用上表的 `<c-\>` 切换 Neovim cwd。
 
-完整配置以 `yazi/keymap.toml` 为准。使用中如果发现冲突，在 yazi 内按 `~` 查看当前面板的键位绑定。
+使用中如果要查看完整默认键位，在 yazi 内按 `~` 查看当前面板的 keybindings。
 
 ## Ghostty
 
