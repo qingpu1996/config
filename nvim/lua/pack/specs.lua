@@ -7,6 +7,7 @@ return {
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/folke/which-key.nvim",
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/kdheepak/lazygit.nvim",

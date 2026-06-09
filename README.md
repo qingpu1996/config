@@ -9,9 +9,11 @@
 | 路径 | 说明 |
 | --- | --- |
 | `nvim/` | Neovim 配置，当前主力维护对象 |
-| `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配 |
+| `lazygit/config.yml` | lazygit 配置，包含 Norman 布局适配和 Catppuccin Mocha 主题 |
 | `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
 | `yazi/yazi.toml` | yazi 行为配置，包含 Neovim opener |
+| `yazi/theme.toml` | yazi Catppuccin Mocha 主题 |
+| `yazi/Catppuccin-mocha.tmTheme` | yazi 预览窗语法高亮主题 |
 | `ghostty/config` | Ghostty 终端配置 |
 | `starship.toml` | Starship shell prompt 配置 |
 | `input-method/` | Rime/Squirrel 相关输入法配置 |
@@ -105,6 +107,7 @@ nvim/nvim-pack-lock.json
 | `conform.nvim` | 格式化 |
 | `gitsigns.nvim` | Git hunk 信息 |
 | `which-key.nvim` | 快捷键提示 |
+| `catppuccin.nvim` | Neovim 配色主题 |
 | `fzf-lua` | 文件搜索、全文搜索、buffer、symbol、diagnostics |
 | `yazi.nvim` | 在 Neovim 中打开 yazi，替代目录树 |
 | `lazygit.nvim` | 在 Neovim 中打开 lazygit |
@@ -193,6 +196,10 @@ macOS 默认配置路径已设计为软链接到这个文件：
 
 - [lazygit 和 Norman 布局](docs/lazygit-norman-workflow.md)
 
+当前 lazygit 主题使用 Catppuccin Mocha Mauve，直接写入 `lazygit/config.yml` 的 `gui.theme`，不需要额外修改启动命令。
+
+后续 TODO：在 lazygit 里接入 AI 生成 commit message。建议用 lazygit 官方 `customCommands` 做一个 `files` 面板快捷键，调用仓库里的脚本读取 `git diff --cached`，只总结已 staged 的改动，再把结果作为 input prompt 的 `initialValue`，确认后执行 `git commit -m ...`。脚本建议支持 provider 切换：本机可以先用 `codex exec`，公司机器可以换成 Claude CLI。
+
 ## yazi
 
 yazi 配置文件在：
@@ -200,6 +207,8 @@ yazi 配置文件在：
 ```text
 yazi/yazi.toml
 yazi/keymap.toml
+yazi/theme.toml
+yazi/Catppuccin-mocha.tmTheme
 ```
 
 macOS 默认配置路径已设计为软链接到这个文件：
@@ -207,6 +216,8 @@ macOS 默认配置路径已设计为软链接到这个文件：
 ```text
 ~/.config/yazi/yazi.toml
 ~/.config/yazi/keymap.toml
+~/.config/yazi/theme.toml
+~/.config/yazi/Catppuccin-mocha.tmTheme
 ```
 
 如果新机器上还没有链接，可以用：
@@ -215,9 +226,13 @@ macOS 默认配置路径已设计为软链接到这个文件：
 mkdir -p ~/.config/yazi
 ln -sfn "$HOME/Documents/config/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 ln -sfn "$HOME/Documents/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
+ln -sfn "$HOME/Documents/config/yazi/theme.toml" "$HOME/.config/yazi/theme.toml"
+ln -sfn "$HOME/Documents/config/yazi/Catppuccin-mocha.tmTheme" "$HOME/.config/yazi/Catppuccin-mocha.tmTheme"
 ```
 
 `yazi/yazi.toml` 当前把文本类文件固定交给 `nvim` 打开，避免落到 `${EDITOR:-vi}` 的默认行为。
+
+`yazi/theme.toml` 当前使用 Catppuccin Mocha Mauve；预览窗语法高亮使用同目录下的 `Catppuccin-mocha.tmTheme`。
 
 `yazi/keymap.toml` 主要做 Norman 布局适配，翻译原则和 lazygit 一致：
 
@@ -290,6 +305,18 @@ ln -sfn "$HOME/Documents/config/starship.toml" "$HOME/.config/starship.toml"
 ```
 
 当前 zsh 仍然保留 Oh My Zsh 和插件，但 prompt 由 Starship 接管；Powerlevel10k 已停用。
+
+## JetBrains IDE
+
+公司机器 TODO：JetBrains 系 IDE（IntelliJ IDEA / WebStorm / PyCharm 等）也安装 Catppuccin 配色插件，和 Neovim、yazi、lazygit 保持 Mocha 口味一致。
+
+安装方向：
+
+- 插件：`Catppuccin Theme`
+- 官方仓库：https://github.com/catppuccin/jetbrains
+- JetBrains Marketplace 搜索：`Catppuccin Theme`
+- UI Theme 和 Editor Color Scheme 都优先选 Mocha；如果有 accent 选项，优先用 Mauve。
+- 可选：再评估是否安装 Catppuccin Icons。
 
 ## 文档
 

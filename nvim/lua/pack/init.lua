@@ -37,6 +37,7 @@ end, {
 vim.pack.add(specs, { confirm = false, load = true })
 
 for _, name in ipairs({
+  "catppuccin",
   "lspconfig",
   "blink",
   "conform",
