@@ -14,4 +14,8 @@ return {
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/hedyhli/outline.nvim",
   "https://github.com/jiaoshijie/undotree",
+  "https://github.com/mfussenegger/nvim-jdtls",
+  "https://github.com/mfussenegger/nvim-dap",
+  "https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/nvim-neotest/nvim-nio",
 }

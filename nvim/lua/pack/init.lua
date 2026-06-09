@@ -48,6 +48,8 @@ for _, name in ipairs({
   "mini",
   "outline",
   "undotree",
+  "jdtls",
+  "dap",
 }) do
   local ok, err = pcall(require, "pack.configs." .. name)
   if not ok then

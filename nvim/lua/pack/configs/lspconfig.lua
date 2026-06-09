@@ -11,6 +11,7 @@ local servers = {
   "cssls",
   "tailwindcss",
   "jsonls",
+  "jdtls",
 }
 
 local ok_mason_lsp, mason_lsp = pcall(require, "mason-lspconfig")
@@ -52,7 +53,9 @@ vim.lsp.config("lua_ls", {
 })
 
 for _, server in ipairs(servers) do
-  pcall(vim.lsp.enable, server)
+  if server ~= "jdtls" then
+    pcall(vim.lsp.enable, server)
+  end
 end
 
 local group = vim.api.nvim_create_augroup("user_lsp", { clear = true })
