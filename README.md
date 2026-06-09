@@ -13,6 +13,7 @@
 | `yazi/keymap.toml` | yazi 键位配置，包含 Norman 布局适配 |
 | `yazi/yazi.toml` | yazi 行为配置，包含 Neovim opener |
 | `ghostty/config` | Ghostty 终端配置 |
+| `starship.toml` | Starship shell prompt 配置 |
 | `input-method/` | Rime/Squirrel 相关输入法配置 |
 | `docs/` | Neovim、lazygit、终端和 Java 工作流调研记录 |
 
@@ -266,6 +267,29 @@ ln -sfn "$HOME/Documents/config/ghostty/config" "$HOME/.config/ghostty/config"
 ```
 
 当前配置：字体 Maple Mono NF（`brew install --cask font-maple-mono-nf`），macOS 标签栏风格，Option 键作为 Alt。
+
+## Starship
+
+Starship prompt 配置文件在：
+
+```text
+starship.toml
+```
+
+macOS 默认配置路径已设计为软链接到这个文件：
+
+```text
+~/.config/starship.toml
+```
+
+如果新机器上还没有链接，可以用：
+
+```sh
+brew install starship
+ln -sfn "$HOME/Documents/config/starship.toml" "$HOME/.config/starship.toml"
+```
+
+当前 zsh 仍然保留 Oh My Zsh 和插件，但 prompt 由 Starship 接管；Powerlevel10k 已停用。
 
 ## 文档
 
