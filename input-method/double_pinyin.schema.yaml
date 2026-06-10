@@ -54,7 +54,7 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: "b;mtekpogiynqxvrufzcsjwaoeld"
+  alphabet: "b;mtekpogiynqxvrufzcsjwaoeldh"
   delimiter: " '"
   algebra:
     - erase/^xx$/
