@@ -14,5 +14,8 @@ window-decoration = true
 macos-titlebar-style = tabs
 macos-option-as-alt = true
 
+# shell
+shell-integration = none
+
 # theme
 theme = Monokai Soda

@@ -18,6 +18,7 @@ conform.setup({
     sh = { "shfmt" },
     zsh = { "shfmt" },
     java = { lsp_format = "fallback" },
+    python = { "ruff" },
   },
 })
 

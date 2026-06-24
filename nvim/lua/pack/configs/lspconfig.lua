@@ -12,6 +12,7 @@ local servers = {
   "tailwindcss",
   "jsonls",
   "jdtls",
+  "basedpyright",
 }
 
 local ok_mason_lsp, mason_lsp = pcall(require, "mason-lspconfig")
@@ -48,6 +49,22 @@ vim.lsp.config("lua_ls", {
         library = vim.api.nvim_get_runtime_file("", true),
       },
       telemetry = { enable = false },
+    },
+  },
+})
+
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "openFilesOnly",
+      },
     },
   },
 })
