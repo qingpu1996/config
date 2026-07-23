@@ -2,7 +2,7 @@
 # Docs: https://ghostty.org/docs/config
 
 # Font
-font-family = MapleMono-NF
+font-family = Maple Mono NF CN
 font-size = 14
 
 # Window
@@ -18,4 +18,4 @@ macos-option-as-alt = true
 shell-integration = none
 
 # theme
-theme = Monokai Soda
+theme = Catppuccin Mocha

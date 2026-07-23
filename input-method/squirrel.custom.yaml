@@ -1,2 +1,4 @@
 patch:
-  style/horizontal: true
+  "style/horizontal": true
+  "style/candidate_list_layout": linear
+  "style/color_scheme": google
